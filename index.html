@@ -28,6 +28,7 @@
         <button @click="count++">+</button>
       </div>
     </div> -->
+    <h1 class="text-center my-5 text-5xl">State</h1>
     <div x-data="{name:'Yasya Indra', age:12}">
       <h1 class="text-3xl font-bold underline" x-text="name"></h1>
       <p x-text="age"></p>
@@ -66,6 +67,54 @@
         </template>
       </ul>
     </div>
+    <!-- Template -->
+    <h1 class="text-center my-5 text-5xl">Template</h1>
+    <div
+      x-data="{name:'Afifan', angka:11}"
+      class="container mx-auto w-1/2 text-center mt-10 bg-slate-400 p-10 rounded-xl shadow"
+    >
+      <h1
+        class="text-2xl font-bold bg-clip-text text-transparent drop-shadow-sm text-white drop-shadow-sm"
+      >
+        Hello, <span x-text="angka"></span> yang merupakan bilangan
+        <span x-text="angka % 2 == 0 ? 'Genap':'Ganjil'"></span>
+      </h1>
+    </div>
+    <!-- Inner HTML -->
+    <div
+      x-data="{name:'Afifan', link:'<a href=\'https://yasyaindra.com\'>Yasya Indra</a>'}"
+      class="container mx-auto w-1/2 text-center mt-10 bg-slate-400 p-10 rounded-xl shadow"
+    >
+      <h1
+        class="text-2xl font-bold bg-clip-text text-transparent drop-shadow-sm text-white drop-shadow-sm"
+      >
+        Hello, <span x-html="link"></span>
+      </h1>
+    </div>
+    <!-- Toggle Element -->
+    <!-- x-show -->
+    <div x-data="{open:false}" class="container mx-auto w-1/2 text-center my-10 bg-slate-400 p-10 rounded-xl shadow">
+      <button @click="open = !open" x-text="open ? 'Tutup' : 'Buka'" class="py-2 px-5 bg-slate-600 text-white rounded-md"></button>
+      <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white"" x-show="open">Lorem ipsum dolor sit amet</div>
+    </div>
+    <!-- x-if -->
+    <div x-data="{open:false}" class="container mx-auto w-1/2 text-center my-10 bg-slate-400 p-10 rounded-xl shadow">
+      <button @click="open = !open" x-text="open ? 'Tutup' : 'Buka'" class="py-2 px-5 bg-slate-600 text-white rounded-md"></button>
+      <template x-if="open">
+        <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white"" x-show="open">Lorem ipsum dolor sit amet</div>
+      </template>
+    </div>
+    <!-- x-transition -->
+    <div x-data="{open:false}" class="container mx-auto w-1/2 text-center my-10 bg-slate-400 p-10 rounded-xl shadow">
+      <button @click="open = !open" x-text="open ? 'Tutup' : 'Buka'" class="py-2 px-5 bg-slate-600 text-white rounded-md"></button>
+      <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white"" x-show="open" x-transition.origin.top.left.duration.1000ms>Lorem ipsum dolor sit amet</div>
+    </div>
+    <!-- x-bind -->
+    <div x-data="{open:false}" class="container mx-auto w-1/2 text-center my-10 bg-slate-400 p-10 rounded-xl shadow">
+      <button @click="open = !open" x-text="open ? 'Tutup' : 'Buka'" class="py-2 px-5 bg-slate-600 text-black rounded-md" x-bind:class="open ? 'bg-lime-200' : 'bg-cyan-100'"></button>
+      <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white"" x-show="open" x-transition.origin.top.left.duration.1000ms>Lorem ipsum dolor sit amet</div>
+    </div>
+    <!-- End Template -->
   </body>
   <script src="/script_v2.js"></script>
   <script>
