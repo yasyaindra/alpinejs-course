@@ -5,15 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Latihan 1</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h1>Welcome</h1>
+    <!-- <div>
+      <h1 class="text-3xl font-bold underline" >Javascript Usage</h1>
+      <div>
+        <button onclick="kurang()">-</button>
+        <span class="hasil">0</span>
+        <button onclick="tambah()">+</button>
+      </div>
+    </div>
     <div>
-      <button onclick="kurang()">-</button>
-      <span class="hasil">0</span>
-      <button onclick="tambah()">+</button>
+      <h1 class="text-3xl font-bold underline" >With AlpineJS</h1>
+      <div x-data="{count:0}">
+        <button @click="count--">-</button>
+        <span x-text="count">0</span>
+        <button @click="count++">+</button>
+      </div>
+    </div> -->
+    <div x-data="{name:'Yasya Indra', age:12}">
+      <h1 class="text-3xl font-bold underline" x-text="name"></h1>
+      <p x-text="age"></p>
+    </div>
+    <br />
+    <div x-data="{name:'Afifan'}">
+      <div x-data="{age:20}">
+        <h1 class="text-3xl font-bold underline" x-text="name"></h1>
+        <p x-text="age"></p>
+      </div>
+    </div>
+    <!-- Latihan -->
+    <div x-data="{foo:'bar'}">
+      <h1 class="text-3xl font-bold underline">Latihan</h1>
+      <span x-text="foo"></span>
+      <span x-text="foo"></span>
+      <div x-data="{foo:'bob'}">
+        <span x-text="foo"></span>
+      </div>
+    </div>
+    <!-- Result -->
+    <div>
+      <h1 class="text-3xl font-bold underline">Hasil</h1>
+      <span>bar</span>
+      <span>bar</span>
+      <div>
+        <span>bob</span>
+      </div>
+    </div>
+    <!-- Globa State -->
+    <div x-data>
+      <h1 class="text-3xl font-bold underline">Global State</h1>
+      <ul>
+        <template x-for="nm in $store.mahasiswa.nama">
+          <li x-text="nm"></li>
+        </template>
+      </ul>
     </div>
   </body>
+  <script src="/script_v2.js"></script>
   <script>
     const hasil = document.querySelector(".hasil");
     let count = 0;
